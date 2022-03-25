@@ -31,23 +31,23 @@ const ProductSchema = mongoose.Schema(
       required: true,
       type: String,
     },
-    Image: {
+    image: {
       type: String,
       required: true,
     },
-    Brand: {
+    brand: {
       type: String,
       required: true,
     },
-    Category: {
+    category: {
       type: String,
       required: true,
     },
-    Description: {
+    description: {
       type: String,
       required: true,
     },
-    Reviews: [reviewSchema],
+    reviews: [reviewSchema],
     Rating: {
       type: Number,
       required: true,
