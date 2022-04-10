@@ -14,10 +14,16 @@ const port = 5000 || process.env.PORT;
 ////////////////////CONNECT TO DB
 const connectDB = require("./db.js");
 connectDB();
-///////////////////////MIDDLEWARE
 
 /////////////////////BODY-PARSER
 app.use(express.json());
+///////////////////////MIDDLEWARE
+
+//////////////////importing the routes
+const products = require("../server/routes/productRouter.js");
+
+////////////////router routes
+app.use("/", products);
 
 //////////////MORGAN
 if (process.env.NODE_ENV === "developement") {
