@@ -1,0 +1,24 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1.6;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.row {
+  display: flex;
+}
+
+img {
+  min-width: 100%;
+}
