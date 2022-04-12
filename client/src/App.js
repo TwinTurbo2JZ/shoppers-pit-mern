@@ -1,5 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./css/app.scss";
+
+////////////////page imports
+import HomeScreen from "./components/Screens/HomeScreen";
+//////component imports
 import Header from "./components/Header";
 
 function App() {
@@ -7,7 +11,11 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <h1>Hello</h1>
+         <h1>gg</h1>
+        
+        <Routes>
+          <Route path="/" element={<HomeScreen />}> </Route>
+        </Routes>
       </div>
     </Router>
   );
