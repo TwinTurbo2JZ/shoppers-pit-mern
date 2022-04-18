@@ -1,24 +1,43 @@
-*,
-*::after,
-*::before {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+@import "./partials/variable";
 
-html {
-  line-height: 1.6;
-}
+//resets and base layout
+@import "./partials/_resets_Utils.scss";
 
-.container {
-  margin: 0 auto;
-  max-width: 1200px;
-}
+//colors
 
-.row {
-  display: flex;
-}
+//components (button, card, navbar)
+@import "./partials/components/card";
+//utlities (margin, padding and so on)
+//pages
+@import "./partials/_header.scss";
+@import "./partials/_footer.scss";
 
-img {
-  min-width: 100%;
-}
+
+// *,
+// *::after,
+// *::before {
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+// }
+
+// html {
+//   line-height: 1.6;
+// }
+
+// .container {
+//   margin: 0 auto;
+//   max-width: 1200px;
+// }
+
+// .row {
+//   display: flex;
+// }
+
+// img {
+//   min-width: 100%;
+// }
+
+// .g {
+//   font-size: 2rem;
+// }

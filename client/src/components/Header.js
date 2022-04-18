@@ -3,29 +3,36 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="header">
-      <div className="header container  row">
-        <Link to="/" className="header__name header__list">
-          Shopper's Pit
-        </Link>
+    <div className="nav">
+      <div className="container flex nav__items">
 
-        <ul className="header__lists">
-          <li>
-            <Link to="/register" className="header__list">
-              <p>Register</p>
-            </Link>
-          </li>
-          <li>
-            <Link to="/login" className="header__list">
-              Log in
-            </Link>
-          </li>
-          <li>
-            <Link to="#" className="header__list">
-              Browse Products
-            </Link>
-          </li>
-        </ul>
+      
+          <Link to="/" className=" nav__list nav__name nav__item">
+            <p>Shopper's Pit</p>
+          </Link>
+        
+        
+
+        <div className="">
+            <ul className="nav__lists">
+              <li>
+                <Link to="/register" className="nav__list">
+                  <p>Register</p>
+                </Link>
+              </li>
+              <li>
+                <Link to="/login" className="nav__list">
+                  <p>Log in</p>
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="nav__list">
+                  <p>Browse Products</p>
+                </Link>
+              </li>
+            </ul>
+        </div>
+        
       </div>
     </div>
   );

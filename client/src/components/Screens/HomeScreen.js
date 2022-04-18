@@ -23,11 +23,20 @@ const HomeScreen = () => {
 
   return (
     
-    <div>
+    <div className='container'>
+      <h1 className='g'>GG</h1>
+      <div className='flex'>
       {products.map(product =>
-        <p>{product.name}</p>
-       
-      )}
+          <div className='card'  key={product.id}>
+          <p>{product.name}</p>
+          <p>{product.brand}</p>
+          <img src={product.image} />
+          <p>{product.price}</p>
+</div>
+
+
+)}
+      </div>
       
     </div>
   )
