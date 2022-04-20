@@ -40,13 +40,31 @@ img {
   max-width: 100%;
 }
 
+//utilities
+
+.mt-1 {
+  margin-top: 1em;
+}
+.mt-2 {
+  margin-top: 2em;
+}
+.mt-3 {
+  margin-top: 3em;
+}
+
+//layout
+
 .flex {
   display: flex;
 }
 
+.grid-4c {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 //test
-
-
 
 //Utility components
 
