@@ -1,38 +1,38 @@
 const express = require("express");
 const app = express();
 
-const cors = require("cors"); 
+const cors = require("cors");
 
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 
-/////////////////DOTENV
+//DOTENV
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 
-////////////////PORT
+//PORT
 const port = 5000 || process.env.PORT;
 
-////////////////////CONNECT TO DB
+//CONNECT TO DB
 const connectDB = require("./db.js");
 connectDB();
 
-/////////////////////BODY-PARSER
+//BODY-PARSER
 app.use(express.json());
-///////////////////////MIDDLEWARE
+//MIDDLEWARE
 app.use(cors());
-//////////////////importing the routes
+//importing the routes
 const products = require("../server/routes/productRouter.js");
 
-////////////////router routes
+//router routes
 app.use("/", products);
 
-//////////////MORGAN
+//MORGAN
 if (process.env.NODE_ENV === "developement") {
   app.use(morgan("dev"));
 }
 
-/////////ROUTES
+//ROUTES
 
 app.get("/", (req, res) => {
   res.status(200).json({
@@ -40,5 +40,5 @@ app.get("/", (req, res) => {
   });
 });
 
-//////////LISTENING
+//LISTENING
 app.listen(port, console.log(`Status: Running on ${port}`));
