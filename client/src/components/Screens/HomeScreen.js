@@ -20,11 +20,9 @@ const HomeScreen = () => {
   //   }
   // };
 
-  dispatch(getProducts);
-
-  // useEffect(() => {
-  //   dispatch(getProducts);
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
   console.log(products);
 

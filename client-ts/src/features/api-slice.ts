@@ -1,4 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { Product } from "../models/product.model";
+import { Produced } from "immer/dist/internal";
 
 interface prodcutsState {
   products: {};
@@ -7,32 +9,39 @@ interface prodcutsState {
 export const getProducts = createAsyncThunk(
   "products/getProducts",
   async () => {
-    const response = await fetch("http://localhost:5000");
-    const data = await response.json();
-    return data;
+    return await fetch("http://localhost:5000").then((response) =>
+      response.json()
+    );
   }
 );
 
-// const initialState = {
-//   value: 0,
-//   products: [],
-// };
+type State = {
+  products: Product[];
+  status?: "loading" | "successful" | "failed";
+};
+
+const initialState: State = {
+  products: [],
+  status: undefined,
+};
 
 const prodcutsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getProducts.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getProducts.fulfilled, (state, { payload }) => {
+        state.products = payload;
+        state.status = "successful";
+      })
+      .addCase(getProducts.rejected, (state) => {
+        state.status = "failed";
+      });
+  },
 });
 
-// reducers: {
-//   [getProducts.pending]: (state) => {
-//     state.status = "loading";
-//   },
-//   [getProducts.fulfilled]: (state, actions) => {
-//     state.status = "successful";
-//     state.prodcuts = actions.payload;
-//   },
-//   [getProducts.rejected]: (state) => {
-//     state.status = "failed";
-//   },
 export default prodcutsSlice.reducer;

@@ -7,3 +7,7 @@ export const store = configureStore({
     products: productsSlice,
   },
 });
+
+export type AppDispatch = typeof store.dispatch; //to know type for ts
+
+export type RootState = ReturnType<typeof store.getState>;
