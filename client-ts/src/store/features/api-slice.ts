@@ -1,10 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Product } from "../models/product.model";
-import { Produced } from "immer/dist/internal";
 
-interface prodcutsState {
-  products: {};
-}
+// models
+import { Product } from "models/product.model";
 
 export const getProducts = createAsyncThunk(
   "products/getProducts",
@@ -15,17 +12,17 @@ export const getProducts = createAsyncThunk(
   }
 );
 
-type State = {
+export type ProductState = {
   products: Product[];
-  status?: "loading" | "successful" | "failed";
+  status: "loading" | "successful" | "failed" | "idle";
 };
 
-const initialState: State = {
+const initialState: ProductState = {
   products: [],
-  status: undefined,
+  status: "idle",
 };
 
-const prodcutsSlice = createSlice({
+export const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {},
@@ -44,4 +41,4 @@ const prodcutsSlice = createSlice({
   },
 });
 
-export default prodcutsSlice.reducer;
+export default productsSlice.reducer;

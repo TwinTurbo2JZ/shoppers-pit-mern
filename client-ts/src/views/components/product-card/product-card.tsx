@@ -1,7 +1,12 @@
-import React from "react";
+import { Product } from "models";
+import { FC } from "react";
 import { Link } from "react-router-dom";
 
-const Product = ({ product }) => {
+export type ProductCardProps = {
+  product: Product;
+};
+
+export const ProductCard: FC<ProductCardProps> = ({ product }) => {
   return (
     <div className="card">
       <Link to={`${product._id}`}>
@@ -16,4 +21,4 @@ const Product = ({ product }) => {
   );
 };
 
-export default Product;
+export default ProductCard;
