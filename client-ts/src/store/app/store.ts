@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import productsSlice from "../features/api-slice";
+import productsSlice from "@slices/api-slice";
 
 export const store = configureStore({
   reducer: {
@@ -11,3 +11,5 @@ export const store = configureStore({
 export type AppDispatch = typeof store.dispatch; //to know type for ts
 
 export type RootState = ReturnType<typeof store.getState>;
+
+export default store;
