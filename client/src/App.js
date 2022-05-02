@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./css/app.scss";
 
-import { Provider } from "react-redux";
-
 ////////////////page imports
 import HomeScreen from "./components/Screens/HomeScreen";
 //////component imports
