@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
 import Product from "../Product.js";
@@ -9,6 +9,10 @@ const HomeScreen = () => {
   const [products, setProducts] = useState([]);
 
   const dispatch = useDispatch();
+
+  const products1 = useSelector((state) => state.products.products);
+  const { status, data } = products1;
+  console.log(data, "1");
 
   // const getData = async () => {
   //   try {
@@ -30,7 +34,7 @@ const HomeScreen = () => {
     <div className="container mt-1">
       <h1>GG</h1>
       <div className="grid-4c">
-        {products.map((product) => (
+        {data.map((product) => (
           <Product key={product.id} product={product} />
         ))}
       </div>

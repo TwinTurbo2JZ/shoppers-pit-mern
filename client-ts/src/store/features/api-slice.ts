@@ -14,7 +14,7 @@ export const getProducts = createAsyncThunk(
 
 export type ProductState = {
   products: Product[];
-  status: "loading" | "successful" | "failed" | "idle";
+  status: "loading" | "success" | "failed" | "idle";
 };
 
 const initialState: ProductState = {
@@ -33,7 +33,7 @@ export const productsSlice = createSlice({
       })
       .addCase(getProducts.fulfilled, (state, { payload }) => {
         state.products = payload;
-        state.status = "successful";
+        state.status = "success";
       })
       .addCase(getProducts.rejected, (state) => {
         state.status = "failed";

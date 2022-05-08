@@ -7,42 +7,54 @@ import ProductCard from "@components/product-card";
 import { getProducts } from "store/features/api-slice.js";
 import { useAppDispatch } from "store/app/hooks";
 import { RootState } from "store/app";
-import { useHomeScreen } from "./use-home-screen";
+//import { useHomeScreen } from "./use-home-screen";
+
+import { Product } from "models/product.model";
 
 export type HomeScreenProps = {};
 
 export const HomeScreen: FC<HomeScreenProps> = () => {
-  // const dispatch = useAppDispatch();
-  // const products = useSelector((state: RootState) => state.products.products);
-  // const status = useSelector((state: RootState) => state.products.status);
+  const dispatch = useAppDispatch();
+  const products1 = useSelector((state: RootState) => state.products.products);
+  const status1 = useSelector((state: RootState) => state.products.status);
 
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
-  const { products, status } = useHomeScreen();
-  console.log({ products, status });
+  //const { products, status } = useHomeScreen();
+  //console.log({ products, status });
+  //console.log(products.data);
 
-  if (status === "loading" || status === "idle") {
+  type ProductData = {
+    status: string;
+    data: Product[];
+  };
+
+  const { status, data }: ProductData = products1;
+
+  console.log(status, "1");
+
+  if (status1 === "loading" || status === "idle") {
     return <div>...loading</div>;
   }
 
-  if (status === "failed") {
+  if (status1 === "failed") {
     return <div>Something went wrong</div>;
   }
 
-  return (
-    <div className="container mt-1">
-      <h1>GG</h1>
-      <div className="grid-4c">
-        {products.map((product) => (
-          <ProductCard key={product._id} product={product} />
+  if (status1 === "success") {
+    return (
+      <div>
+        {data.map((d) => (
+          <ProductCard key={d._id} product={d} />
         ))}
+        <h1>Working</h1>
       </div>
-    </div>
-  );
+    );
+  }
 
-  return null;
+  return <div className="container mt-1">oops</div>;
 };
 
 export default HomeScreen;
