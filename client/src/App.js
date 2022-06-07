@@ -10,12 +10,11 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <h1>gg</h1>
         <Header />
 
         <Routes>
-          <Route path="/" element={<HomeScreen />}>
-            {" "}
-          </Route>
+          <Route path="/" element={<HomeScreen />}></Route>
         </Routes>
       </div>
     </Router>
