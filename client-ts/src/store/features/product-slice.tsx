@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { useParams } from "react-router-dom";
 
 import { Product } from "models/product.model";
+import { Data } from "models/data.model";
+import { Status } from "models/status.model";
 
 export const getProduct = createAsyncThunk(
   "product/getProduct",
@@ -14,13 +16,20 @@ export const getProduct = createAsyncThunk(
   }
 );
 
+// export type DatabaseState = {
+//   //try this
+//   status: string;
+//   data: ProductState;
+// };
+
 export type ProductState = {
-  product: Product | {};
   status: "loading" | "success" | "failed" | "idle";
+  product: {} | Product | Data;
 };
+
 const initialState: ProductState = {
-  product: {},
   status: "idle",
+  product: {},
 };
 
 export const productSlice = createSlice({

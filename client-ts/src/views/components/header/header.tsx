@@ -23,8 +23,8 @@ const header: React.FC<Props> = ({}) => {
             </Link>
           </li>
           <li>
-            <Link to="#" className="header__list">
-              Trips
+            <Link to="/cart" className="header__list">
+              Cart
             </Link>
           </li>
         </ul>
