@@ -13,6 +13,10 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
+<<<<<<< HEAD
+=======
+    // <ShoppingCartProvider>
+>>>>>>> 10912eb4172baca1f4ffc9e1cc6990781b013048
     <Router>
       <div className="App">
         <Header />
@@ -24,8 +28,11 @@ function App() {
         </Routes>
       </div>
     </Router>
+<<<<<<< HEAD
     // <ShoppingCartProvider>
 
+=======
+>>>>>>> 10912eb4172baca1f4ffc9e1cc6990781b013048
     // </ShoppingCartProvider>
   );
 }
