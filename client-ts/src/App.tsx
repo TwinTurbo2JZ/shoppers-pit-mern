@@ -5,6 +5,7 @@ import "./App.css";
 import Home from "./views/screens/home/home.screen";
 import ProductPage from "./views/components/product-page/product-page";
 import Cart from "./views/components/cart/cart";
+import BCartProvider from "./context/BCartContext";
 
 //cart context
 import { ShoppingCartProvider } from "./context/ShoppingCartContext";
@@ -13,10 +14,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-<<<<<<< HEAD
-=======
-    // <ShoppingCartProvider>
->>>>>>> 10912eb4172baca1f4ffc9e1cc6990781b013048
+    // <BCartProvider>
     <Router>
       <div className="App">
         <Header />
@@ -28,12 +26,7 @@ function App() {
         </Routes>
       </div>
     </Router>
-<<<<<<< HEAD
-    // <ShoppingCartProvider>
-
-=======
->>>>>>> 10912eb4172baca1f4ffc9e1cc6990781b013048
-    // </ShoppingCartProvider>
+    //</BCartProvider>
   );
 }
 

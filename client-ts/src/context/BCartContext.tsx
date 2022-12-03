@@ -1,3 +1,4 @@
+import CartContext from "@components/cart/cartContext";
 import { useState, useContext, createContext, ReactNode } from "react";
 
 //home state
@@ -68,7 +69,7 @@ export const BCartProvider = ({ children }) => {
   };
 
   const GetTotalCost = () => {
-    let totalCOst = 0;
+    let totalCost = 0;
   };
 
   const [cartItems, setCartItems] = useState<cartItem[]>([]);
@@ -88,3 +89,5 @@ export const BCartProvider = ({ children }) => {
     </BCartContext.Provider>
   );
 };
+
+export default BCartProvider;
